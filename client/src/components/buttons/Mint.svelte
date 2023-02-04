@@ -1,6 +1,5 @@
 <script lang="ts">
   import { ethers } from "ethers";
-  import { create_bidirectional_transition } from "svelte/internal";
   import NFT_ABI from "../../abi/NFT_ABI";
   import { amount } from "../../store/amount";
   import { signer } from "../../store/signer";

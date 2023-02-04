@@ -3,11 +3,6 @@
   import Home from "./pages/Home.svelte";
   import { wrap } from "svelte-spa-router/wrap";
 
-  import { Buffer } from "buffer";
-  import Process from "process";
-  globalThis.process = Process;
-  globalThis.Buffer = Buffer;
-
   const routes = {
     "/": wrap({
       component: Home,
