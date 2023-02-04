@@ -12,7 +12,7 @@
     const chainId = await $signer.getChainId();
     if (chainId !== 7700) {
       message =
-        "On wrong chain, go to ur metamask and change it to canto then refresh the page cause i didnt do the .on accounts changed thing, jesus christ";
+        "On wrong chain, go to ur metamask and change it to canto then refresh the page cause i didnt do the .on accounts changed thing, fml";
       return;
     }
     const contract = new ethers.Contract(
