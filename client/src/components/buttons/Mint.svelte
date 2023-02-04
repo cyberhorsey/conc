@@ -21,7 +21,7 @@
       NFT_ABI,
       $signer
     );
-    const tx = await contract.mint(2);
+    const tx = await contract.mint(3);
     txHash = tx.hash;
     minted = true;
   }
