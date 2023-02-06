@@ -4,6 +4,8 @@
   import { wrap } from "svelte-spa-router/wrap";
   import Navbar from "./components/Navbar.svelte";
   import ViewForAddress from "./pages/ViewForAddress.svelte";
+  import EndlessRunner from "./pages/EndlessRunner.svelte";
+  import Rarities from "./pages/Rarities.svelte";
 
   const routes = {
     "/": wrap({
@@ -12,6 +14,14 @@
     }),
     "/viewForAddress": wrap({
       component: ViewForAddress,
+      props: {},
+    }),
+    // "/endlessRunner": wrap({
+    //   component: EndlessRunner,
+    //   props: {},
+    // }),
+    "/rarities": wrap({
+      component: Rarities,
       props: {},
     }),
   };

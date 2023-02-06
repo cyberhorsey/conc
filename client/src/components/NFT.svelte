@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { push } from "svelte-spa-router";
   import type { NFT } from "../domain/nft";
   import nftStore from "../store/nft";
 
@@ -8,6 +9,7 @@
   function selectCantos() {
     if (!select) return;
     nftStore.set(nft);
+    // push("/endlessRunner");
   }
 </script>
 

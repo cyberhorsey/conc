@@ -17,7 +17,11 @@
     <button class="btn" on:click={() => push("/viewForAddress")}
       >view cantos by address</button
     >
+    <br />
+    or
+    <button class="btn" on:click={() => push("/rarities")}>view rarities</button
+    >
   {:else}
-    <NftView nfts={$nfts} />
+    <NftView nfts={$nfts} select={true} />
   {/if}
 </div>
