@@ -19,6 +19,7 @@
     >
     <br />
     or
+    <br />
     <button class="btn" on:click={() => push("/rarities")}>view rarities</button
     >
   {:else}
