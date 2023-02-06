@@ -54,7 +54,7 @@
   }
 </script>
 
-<div>
+<div style="position: relative; height:40vh; width:80vw">
   <div class="tabs">
     {#each Object.keys(rarities) as r}
       <a
@@ -68,8 +68,5 @@
     {/each}
   </div>
 
-  <canvas
-    style="background-color: #000000, height: 240px; width: 400px;"
-    id="canvas"
-  />
+  <canvas style="background-color: #000000;" id="canvas" />
 </div>
