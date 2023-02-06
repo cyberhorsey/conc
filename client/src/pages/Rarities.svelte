@@ -54,7 +54,7 @@
   }
 </script>
 
-<div style="position: relative; height:40vh; width:80vw">
+<div style="position: relative; height:40rem; width:40rem">
   <div class="tabs">
     {#each Object.keys(rarities) as r}
       <a
