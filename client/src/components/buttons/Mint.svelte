@@ -1,12 +1,15 @@
 <script lang="ts">
   import { ethers } from "ethers";
+  import { onMount } from "svelte";
   import NFT_ABI from "../../abi/NFT_ABI";
   import { amount } from "../../store/amount";
   import { signer } from "../../store/signer";
+  import axios from "axios";
 
   let minted: boolean = false;
   let txHash: string = "";
   let message: string = "";
+  let cantoImages: string[] = [];
 
   async function mint() {
     const chainId = await $signer.getChainId();
@@ -26,6 +29,11 @@
   }
 </script>
 
+<div class="grid sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-4 p-4">
+  {#each cantoImages as cantoImage}
+    <img style="height: 80px; width: 80px;" src={cantoImage} />
+  {/each}
+</div>
 {#if message}
   <h2 style="color:red;">{message}</h2>
 {/if}

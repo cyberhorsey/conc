@@ -1,17 +1,25 @@
 <script lang="ts">
-  import nfts from "../store/nfts";
+  import nft from "../store/nft";
   import Nft from "./NFT.svelte";
+  import type { NFT } from "../domain/nft";
+
+  export let nfts: NFT[];
+  export let select: boolean = true;
 </script>
 
 <div>
-  <h1>Select an NFT</h1>
-  {#if $nfts && $nfts.length}
-    <div class="grid sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-4 p-4">
-      {#each $nfts as nft}
-        <Nft {nft} />
+  {#if nfts && nfts.length && !$nft}
+    {#if select}
+      <h1>Select an NFT</h1>
+    {/if}
+    <div class="grid sm:grid-cols-4 gap-4 p-4">
+      {#each nfts as nft}
+        <Nft {nft} {select} />
       {/each}
     </div>
-  {:else}
-    Loading NFTs...
+  {:else if select && $nft}
+    <div class="text-center">
+      <Nft nft={$nft} select={false} />
+    </div>
   {/if}
 </div>

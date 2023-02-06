@@ -1,12 +1,19 @@
 <script lang="ts">
   import type { NFT } from "../domain/nft";
+  import nftStore from "../store/nft";
 
   export let nft: NFT;
+  export let select: boolean = true;
+
+  function selectCantos() {
+    if (!select) return;
+    nftStore.set(nft);
+  }
 </script>
 
-<div class="nft cursor-pointer">
+<div class="nft {select ? '' : 'cursor-pointer'}" on:click={selectCantos}>
   {nft.name} <br />
-  <img src={nft.image} /> <br />
+  <img class="inline-block" src={nft.image} /> <br />
 </div>
 
 <style>

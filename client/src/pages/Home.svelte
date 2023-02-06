@@ -1,26 +1,23 @@
 <script lang="ts">
+  import { push } from "svelte-spa-router";
   import ConnectWallet from "../components/buttons/ConnectWallet.svelte";
-  import Mint from "../components/buttons/Mint.svelte";
-  import Navbar from "../components/Navbar.svelte";
-  import wallet from "../store/wallet";
+  import NftView from "../components/NFTView.svelte";
+  import { signer } from "../store/signer";
+  import nfts from "../store/nfts";
 </script>
 
-<Navbar />
-
-<div
-  class="hero min-h-screen"
-  style="background-image: url('./bg.gif'); background-repeat: repeat;"
->
-  <div class="hero-overlay bg-opacity-60" />
-  <div class="hero-content text-center text-neutral-content">
-    <div class="max-w-md">
-      <h1 class="mb-5 text-5xl font-bold">cantos on cantos</h1>
-      <p class="mb-5">ready?</p>
-      {#if !$wallet}
-        <ConnectWallet />
-      {:else}
-        <Mint />
-      {/if}
-    </div>
-  </div>
+<div class="max-w-xl">
+  <h1 class="mb-5 text-5xl font-bold">cantos on cantos</h1>
+  <p class="mb-5">ready?</p>
+  {#if !$signer}
+    <ConnectWallet />
+    <br />
+    or
+    <br />
+    <button class="btn" on:click={() => push("/viewForAddress")}
+      >view cantos by address</button
+    >
+  {:else}
+    <NftView nfts={$nfts} />
+  {/if}
 </div>
